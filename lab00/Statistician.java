@@ -93,8 +93,7 @@ public class Statistician {
 
       // The student's code will replace this return statement:
       if(this.count == other.count && this.total == other.total
-              && this.tinyest == other.tinyest && this.largest == other.largest)
-          return true;
+              && this.tinyest == other.tinyest && this.largest == other.largest) return true;
       return false;
    } 
    
