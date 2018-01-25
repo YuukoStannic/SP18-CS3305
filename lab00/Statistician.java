@@ -29,10 +29,15 @@ public class Statistician {
    //  total, tinyest, and largest are used to derive the statistics
    //  and define the state of a statistician object
 
-    private int    count;   // How many numbers in the sequence
-    private double total;   // The sum of all the numbers in the sequence
-    private double tinyest; // The smallest number in the sequence
-    private double largest; // The largest number in the sequence
+    // private int    count;   // How many numbers in the sequence
+    // private double total;   // The sum of all the numbers in the sequence
+    // private double tinyest; // The smallest number in the sequence
+    // private double largest; // The largest number in the sequence
+     int    count;   // How many numbers in the sequence
+     double total;   // The sum of all the numbers in the sequence
+     double tinyest; // The smallest number in the sequence
+     double largest; // The largest number in the sequence
+
 
 
    /**
