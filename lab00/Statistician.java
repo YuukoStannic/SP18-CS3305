@@ -81,14 +81,20 @@ public class Statistician {
    **/  
    @Override
    public boolean equals(Object obj) {
+
+      boolean answer = false;
+
       if ( obj == null ) return false;
       if ( !(obj instanceof Statistician) ) return false;
 
-      Statistician temp = (Statistician) obj;
-      if ( this == temp ) return true; //Are we comparing with ourself
-      if ( this.length( ) == 0 && temp.length( ) == 0 ) return true;
+      Statistician other = (Statistician) obj;
+      if ( this == other ) return true; //Are we comparing with ourself
+      if ( this.length( ) == 0 &&  other.length( ) == 0 ) return true;
 
       // The student's code will replace this return statement:
+      if(this.count == other.count && this.total == other.total
+              && this.tinyest == other.tinyest && this.largest == other.largest)
+          return true;
       return false;
    } 
    
