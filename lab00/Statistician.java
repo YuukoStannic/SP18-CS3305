@@ -36,7 +36,7 @@ public class Statistician {
      int    count;   // How many numbers in the sequence
      double total;   // The sum of all the numbers in the sequence
      double tinyest; // The smallest number in the sequence
-     double largest; // The largest number in the sequence
+    private double largest; // The largest number in the sequence
 
 
 
@@ -196,6 +196,10 @@ public class Statistician {
    **/
    public void reset( ) {
       // Student implementation.
+      this.count    = 0;
+      this.total    = 0.0;
+      this.tinyest  = +Double.MAX_VALUE;
+      this.largest  = -Double.MAX_VALUE;
    }
 
    /**
