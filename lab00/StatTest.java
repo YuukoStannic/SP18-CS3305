@@ -47,11 +47,24 @@ public class StatTest
 
         Statistician yebar = new Statistician();
 
-        System.out.printf("Test 1.0: reset foo \n \t Testing foo: %s \n \t with new yebar: %s \n",foo,yebar);
-        foo.reset();
-        System.out.printf("Reseting! \n \t %s",foo);
+        // System.out.printf("Test 1.0: reset foo \n \t Testing foo: %s \n \t with new yebar: %s \n",foo,yebar);
+        // foo.reset();
+        // System.out.printf("Reseting! \n \t %s",foo);
 
-        System.out.printf("\t Expected True  and got it %b\n",(foo.equals(yebar) && yebar.equals(foo)));
+        // System.out.printf("\t Expected True  and got it %b\n",(foo.equals(yebar) && yebar.equals(foo)));
+        //
+
+         yebar.count = 4;
+         yebar.total = 3;
+         yebar.tinyest = 3;
+         yebar.largest = 3;
+         
+        Statistician yefoo = new Statistician(yebar);
+        System.out.printf("Test 1.0: copy Constructor and equality \n \t yefoo: %s \n \t with new yebar: %s \n",yefoo,yebar);
+        System.out.printf("\t Expected True and got it %b\n",yebar.equals(yefoo) && yefoo.equals(yebar));
+
+
+
 
 
         
