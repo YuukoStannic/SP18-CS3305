@@ -187,8 +187,10 @@ public class Statistician {
    public void nextNumber(double number) {
       // Student implementation -- this must update all the
       // instance variables
+      this.count++;   // How many numbers in the sequence
+      this.total += number;   // The sum of all the numbers in the sequence
+      
    }
-
    
    /**
    * Reset this Statistician to state with no numbers
