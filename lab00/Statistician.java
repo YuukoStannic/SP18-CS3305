@@ -29,14 +29,10 @@ public class Statistician {
    //  total, tinyest, and largest are used to derive the statistics
    //  and define the state of a statistician object
 
-    // private int    count;   // How many numbers in the sequence
-    // private double total;   // The sum of all the numbers in the sequence
-    // private double tinyest; // The smallest number in the sequence
-    // private double largest; // The largest number in the sequence
-     int    count;   // How many numbers in the sequence
-     double total;   // The sum of all the numbers in the sequence
-     double tinyest; // The smallest number in the sequence
-     double largest; // The largest number in the sequence
+    private int    count;   // How many numbers in the sequence
+    private double total;   // The sum of all the numbers in the sequence
+    private double tinyest; // The smallest number in the sequence
+    private double largest; // The largest number in the sequence
 
 
 
@@ -118,7 +114,7 @@ public class Statistician {
    *   cause failure with an arithmetic overflow.
    **/ 
    public int length( ) {
-      return count;
+      return this.count;
    }
 
    /**
@@ -133,7 +129,7 @@ public class Statistician {
    **/ 
    public double maximum( ) {
       // The student's code will replace this return statement:
-      return 0.0;
+      return (this.count == 0) ? Double.NaN : this.largest;
    }
 
    /**
@@ -156,7 +152,7 @@ public class Statistician {
    **/ 
    public double mean( ) {
       // The student's code will replace this return statement:
-      return 0.0;
+      return (this.count == 0) ? Double.NaN : (this.total / this.count);
    }
 
 
@@ -172,7 +168,7 @@ public class Statistician {
    **/ 
    public double minimum( ) {
       // The student's code will replace this return statement:
-      return 0.0;
+      return (this.count  == 0) ? Double.NaN : this.tinyest;
    }
 
 
@@ -189,7 +185,9 @@ public class Statistician {
       // instance variables
       this.count++;   // How many numbers in the sequence
       this.total += number;   // The sum of all the numbers in the sequence
-      
+
+      this.largest = (number >= this.largest) ? number : this.largest;
+      this.tinyest = (number <= this.tinyest) ? number : this.tinyest;
    }
    
    /**
@@ -225,7 +223,14 @@ public class Statistician {
        Statistician temp = new Statistician(s);
 
        //Student implementation here
+       temp.total   *=  scale;
+       if(scale > 0){
 
+       }else{
+           temp.tinyest *=  scale;
+           temp.largest *=  scale;
+       }
+       
        return temp;
    }
 
@@ -293,10 +298,12 @@ public class Statistician {
           throw new NullPointerException("One or both arguments are null");
 
       Statistician temp = new Statistician();
-
       // The student's code will replace this return statement:
-
-      return null;
+      temp.count = s1.count + s2.count;
+      temp.total = s1.total + s2.total;
+      temp.largest = (s1.largest >= s2.largest) ? s1.largest : s2.largest;
+      temp.tinyest = (s1.tinyest <= s2.tinyest) ? s1.tinyest : s2.tinyest;
+      return temp;
    }
       
 }
