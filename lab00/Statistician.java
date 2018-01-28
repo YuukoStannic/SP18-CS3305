@@ -224,8 +224,14 @@ public class Statistician {
 
        //Student implementation here
        temp.total   *=  scale;
-       if(scale > 0){
+       if(scale < 0){
+           double tmp = 0;
+           tmp = temp.tinyest;
+           temp.tinyest = temp.largest;
+           temp.largest = tmp;
 
+           temp.tinyest *=  scale;
+           temp.largest *=  scale;
        }else{
            temp.tinyest *=  scale;
            temp.largest *=  scale;
