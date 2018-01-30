@@ -97,9 +97,12 @@ public class Statistician {
       if ( this.length( ) == 0 &&  other.length( ) == 0 ) return true;
 
       // The student's code will replace this return statement:
-      if(this.count == other.count && this.total == other.total
-              && this.tinyest == other.tinyest && this.largest == other.largest) return true;
-      return false;
+      // if(this.count == other.count && this.total == other.total
+      //         && this.tinyest == other.tinyest && this.largest == other.largest) return true;
+      return (this.length()  == other.length() &&
+              this.sum()     == other.sum() &&
+              this.minimum() == other.minimum() &&
+              this.maximum() == other.maximum());
    } 
    
    
@@ -220,21 +223,21 @@ public class Statistician {
     *   a reference to a new Statiscian that is a scaled copy of parameter s
     **/
    public static Statistician scale(double scale, Statistician s) {
+       if(s == null){
+           throw new NullPointerException("S cannot be null");
+       }
        Statistician temp = new Statistician(s);
 
+       
        //Student implementation here
-       temp.total   *=  scale;
+           temp.total   *=  scale;
+           temp.tinyest *=  scale;
+           temp.largest *=  scale;
        if(scale < 0){
            double tmp = 0;
            tmp = temp.tinyest;
            temp.tinyest = temp.largest;
            temp.largest = tmp;
-
-           temp.tinyest *=  scale;
-           temp.largest *=  scale;
-       }else{
-           temp.tinyest *=  scale;
-           temp.largest *=  scale;
        }
        
        return temp;
