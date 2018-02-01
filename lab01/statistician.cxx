@@ -40,10 +40,12 @@ statistician::statistician(const statistician& other) {
     this->largest = other.largest;
 }
 
-void statistician::next(double r) {
+void statistician::next(double number) {
     this->count++;
-    this->total += r;
+    this->total += number;
     // Students complete here
+    this->largest = (number >= this->largest) ? number : this->largest;
+    this->tinyest = (number <= this->tinyest) ? number : this->tinyest;
 }
 
 void statistician::reset( ) {
