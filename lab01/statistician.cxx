@@ -99,6 +99,17 @@ statistician  operator *(double scale, statistician& s) {
 
     // Students complete this
     //
+    temp.count   *= scale;
+    temp.total   *= scale;
+    temp.tinyest *= scale; 
+    temp.largest *= scale; 
+
+    if(scale <  0){
+        double t = temp.tinyest;
+        temp.tinyest = temp.largest;
+        temp.largest = t;
+    }
+
     return temp;
 }
 
