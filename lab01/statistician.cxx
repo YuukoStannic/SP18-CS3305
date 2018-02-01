@@ -32,8 +32,6 @@ statistician::statistician( ) {
 }
 
 statistician::statistician(const statistician& other) {
-    if(&other == NULL)
-        std::invalid_argument("other is NULL");        
     this->count   = other.count;
     this->total   = other.total;
     this->tinyest = other.tinyest;
@@ -58,8 +56,6 @@ void statistician::reset( ) {
 statistician& statistician::operator =(const statistician& other) {
     //Check for possible self-assignment
     if (this == &other) return *this;
-    if(&other == NULL)
-        std::invalid_argument("other is NULL");        
     this->count   = other.count;
     this->total   = other.total;
     this->tinyest = other.tinyest;
@@ -99,7 +95,6 @@ statistician  operator *(double scale, statistician& s) {
 
     // Students complete this
     //
-    temp.count   *= scale;
     temp.total   *= scale;
     temp.tinyest *= scale; 
     temp.largest *= scale; 
@@ -118,8 +113,8 @@ statistician operator +(const statistician s1, const statistician s2) {
 
     // Students write the code to define temp to be the union
     // of s1 and s2
-    temp.total  = (s1.length() + s2.length());
-    temp.count  = (s1.sum() + s2.sum());
+    temp.count  = (s1.length() + s2.length());
+    temp.total  = (s1.sum() + s2.sum());
     temp.largest = (s1.maximum() >= s2.maximum()) ? s1.maximum() : s2.maximum();
     temp.tinyest = (s1.minimum() <= s2.minimum()) ? s1.minimum() : s2.minimum();
 
@@ -127,8 +122,6 @@ statistician operator +(const statistician s1, const statistician s2) {
 }
 
 bool operator ==(const statistician& s1, const statistician& s2) {
-    if(&s1 == NULL || &s2 == NULL)
-        std::invalid_argument("s1 or s2 is NULL");        
     if (s1.length( ) == 0 && s2.length( ) == 0) return true;
 
     // Students must now evaluate whether all attributes of s1
