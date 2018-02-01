@@ -118,7 +118,10 @@ statistician operator +(const statistician s1, const statistician s2) {
 
     // Students write the code to define temp to be the union
     // of s1 and s2
-
+    temp.total  = (s1.length() + s2.length());
+    temp.count  = (s1.sum() + s2.sum());
+    temp.largest = (s1.maximum() >= s2.maximum()) ? s1.maximum() : s2.maximum();
+    temp.tinyest = (s1.minimum() <= s2.minimum()) ? s1.minimum() : s2.minimum();
 
     return temp;
 }
