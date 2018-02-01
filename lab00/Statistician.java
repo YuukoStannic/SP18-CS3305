@@ -61,6 +61,8 @@ public class Statistician {
    **/   
    public Statistician( Statistician other ) {
       // Student implementation.      
+      if(other == null )
+          throw new NullPointerException("Null Statistician");
       this.count    = other.count;
       this.total    = other.total;
       this.tinyest  = other.tinyest;
