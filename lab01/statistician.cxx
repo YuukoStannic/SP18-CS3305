@@ -44,18 +44,19 @@ void statistician::next(double number) {
     this->count++;
     this->total += number;
     // Students complete here
-    std::cout<<"R:"<<number<<std::endl;
-    std::cout <<"Min:"<<this->tinyest <<" max:"<<this->largest <<std::endl;
-    this->largest = (number >= this->largest) ? number : this->largest;
-    this->tinyest = (number <= this->tinyest) ? number : this->tinyest;
-    std::cout <<"After Min:"<<this->tinyest <<" max:"<<this->largest <<std::endl;
+    if(count == 1){
+        this->largest = this->tinyest = number;
+    }else{
+        this->largest = (number >= this->largest) ? number : this->largest;
+        this->tinyest = (number <= this->tinyest) ? number : this->tinyest;
+    }
 }
 
 void statistician::reset( ) {
     count = 0;
     total = 0;
-    tinyest =  3.4E+38;
-    largest = -3.4E+38;;
+    this->tinyest = std::numeric_limits<int>::max();
+    this->largest = std::numeric_limits<int>::min();
 }
 
 statistician& statistician::operator =(const statistician& other) {
@@ -115,25 +116,28 @@ statistician  operator *(double scale, statistician& s) {
 
 statistician operator +(const statistician s1, const statistician s2) {
     statistician temp;
-
     // Students write the code to define temp to be the union
     // of s1 and s2
-    temp.count  = (s1.length() + s2.length());
-    temp.total  = (s1.sum() + s2.sum());
-    temp.largest = (s1.maximum() >= s2.maximum()) ? s1.maximum() : s2.maximum();
-    temp.tinyest = (s1.minimum() <= s2.minimum()) ? s1.minimum() : s2.minimum();
+    if(s1.length() && s2.length()){
+        temp.count  = (s1.length() + s2.length());
+        temp.total  = (s1.sum() + s2.sum());
+        temp.largest = (s1.maximum() >= s2.maximum()) ? s1.maximum() : s2.maximum();
+        temp.tinyest = (s1.minimum() <= s2.minimum()) ? s1.minimum() : s2.minimum();
+    }else{
+        temp  = (s1.length()) ? s1 : s2;
+    }
 
     return temp;
 }
 
 bool operator ==(const statistician& s1, const statistician& s2) {
-    if (s1.length( ) == 0 && s2.length( ) == 0) return true;
 
     // Students must now evaluate whether all attributes of s1
     // are equal, one by one, to the attributes of s2
     // replace the bogus return with your implementation
-    return ((s1.sum() == s2.sum()) && (s1.minimum() == s2.minimum())
-            && (s1.maximum() == s2.maximum()) && (s1.mean() == s2.mean()));
+    if ( &s1 == &s2 ) return true;
+    return ((s1.length() == s2.length()) && (s1.sum() == s2.sum()) && (s1.minimum() == s2.minimum())
+            && (s1.maximum() == s2.maximum()));
 }
 
 
