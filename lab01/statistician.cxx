@@ -2,6 +2,7 @@
 #include <string>
 #include <sstream>
 #include <stdexcept>
+#include <limits>
 
 #include "statistician.h"
 
@@ -27,8 +28,9 @@ std::string statistician::toString( ) const {
 statistician::statistician( ) {
     this->count = 0;
     this->total = 0;
-    this->tinyest =  3.4E+38;
-    this->largest = -3.4E+38;
+    //from climits 
+    this->tinyest = std::numeric_limits<int>::max();
+    this->largest = std::numeric_limits<int>::min();
 }
 
 statistician::statistician(const statistician& other) {
@@ -42,8 +44,11 @@ void statistician::next(double number) {
     this->count++;
     this->total += number;
     // Students complete here
+    std::cout<<"R:"<<number<<std::endl;
+    std::cout <<"Min:"<<this->tinyest <<" max:"<<this->largest <<std::endl;
     this->largest = (number >= this->largest) ? number : this->largest;
     this->tinyest = (number <= this->tinyest) ? number : this->tinyest;
+    std::cout <<"After Min:"<<this->tinyest <<" max:"<<this->largest <<std::endl;
 }
 
 void statistician::reset( ) {
