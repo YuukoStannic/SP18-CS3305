@@ -127,8 +127,6 @@ int test2( ) {
     double r = 1.39804e-76;
     r = 1/r;
     s.next(r);
-    std::cout <<"r"<<r<<std::endl;
-    std::cout <<"m"<<s.maximum()<<" max:"<<s.maximum()<<std::endl;
     if ((s.minimum( ) != r) || (s.maximum( ) != r)) return 0;
     points += 2;
 
@@ -155,29 +153,21 @@ int test3( ) {
     if (s.length( ) || t.length( )) return 0;
     if (s.sum( ) || t.sum( )) return 0;
 
-
     t.next(5);
     u.next(0); u.next(10); u.next(10); u.next(20);
 
-    cout << "got here1" << endl;
     v = s + s;
     if (v.length( ) || v.sum( )) return 0;
     points += 2;
-    cout << "got here2" << endl;
 
     v = s + u;
-    cout <<"s = " << s << endl;
-    cout <<"u = " << u << endl;
-    cout <<"v = " << v << endl;
     if (!(u == v)) return 0;
     points += 2;
 
-    cout << "got here3" << endl;
     v = t + s;
     if (!(t == v)) return 0;
     points += 2;
 
-    cout << "got here4" << endl;
     v = t + u;
     if (v.length( ) != 5) return 0;
     if (!close(v.sum( ), 45)) return 0;
@@ -261,23 +251,15 @@ int test5( ) {
     
     if (!(s == s)) return 0;
     points += 2;
-    cout << "Got here" << endl;
     if (s == t) return 0;
     points += 2;
-    cout << "Got here1" << endl;
     if (t == s) return 0;
-    cout << "Got here2" << endl;
-    if (t == s) return 0;
-    cout << "Got here3" << endl;
     points += 2;
     if (u == t) return 0;
-    cout << "Got here4" << endl;
     points += 2;
     if (!(u == v)) return 0;
-    cout << "Got here5" << endl;
     points += 2;
     if (w == x) return 0;
-    cout << "Got here6" << endl;
     points += 2;
 
     cout << "points from this test " << points << endl;
