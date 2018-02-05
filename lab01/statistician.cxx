@@ -1,3 +1,18 @@
+/** *************************************************************
+ * @file        statistician.cxx
+ * @author      H. Paul Haiduk
+ *              Jecsan Blanco
+ *
+ * @date        02/04/2018
+ * @version     1.0
+ *
+ * @brief       This class models a simple statistician.
+ *
+ * @section     DESCRIPTION
+ * A statistician that maintains simple statistics
+ * and which can display itself.
+ *
+ ***************************************************************/
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -145,4 +160,3 @@ std::ostream& operator <<(std::ostream& outs, const statistician& s1) {
     outs << s1.toString();
     return outs;
 }
-
