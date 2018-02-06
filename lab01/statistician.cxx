@@ -1,7 +1,23 @@
+/** *************************************************************
+ * @file        statistician.cxx
+ * @author      H. Paul Haiduk
+ *              Jecsan Blanco
+ *
+ * @date        02/04/2018
+ * @version     1.0
+ *
+ * @brief       This class models a simple statistician.
+ *
+ * @section     DESCRIPTION
+ * A statistician that maintains simple statistics
+ * and which can display itself.
+ *
+ ***************************************************************/
 #include <iostream>
 #include <string>
 #include <sstream>
 #include <stdexcept>
+#include <limits>
 
 #include "statistician.h"
 
@@ -27,8 +43,9 @@ std::string statistician::toString( ) const {
 statistician::statistician( ) {
     this->count = 0;
     this->total = 0;
-    this->tinyest =  3.4E+38;
-    this->largest = -3.4E+38;
+    //from climits 
+    this->tinyest = std::numeric_limits<int>::max();
+    this->largest = std::numeric_limits<int>::min();
 }
 
 statistician::statistician(const statistician& other) {
@@ -38,23 +55,28 @@ statistician::statistician(const statistician& other) {
     this->largest = other.largest;
 }
 
-void statistician::next(double r) {
+void statistician::next(double number) {
     this->count++;
-    this->total += r;
+    this->total += number;
     // Students complete here
+    if(count == 1){
+        this->largest = this->tinyest = number;
+    }else{
+        this->largest = (number >= this->largest) ? number : this->largest;
+        this->tinyest = (number <= this->tinyest) ? number : this->tinyest;
+    }
 }
 
 void statistician::reset( ) {
     count = 0;
     total = 0;
-    tinyest =  3.4E+38;
-    largest = -3.4E+38;;
+    this->tinyest = std::numeric_limits<int>::max();
+    this->largest = std::numeric_limits<int>::min();
 }
 
 statistician& statistician::operator =(const statistician& other) {
     //Check for possible self-assignment
     if (this == &other) return *this;
-
     this->count   = other.count;
     this->total   = other.total;
     this->tinyest = other.tinyest;
@@ -94,26 +116,43 @@ statistician  operator *(double scale, statistician& s) {
 
     // Students complete this
     //
+    temp.total   *= scale;
+    temp.tinyest *= scale; 
+    temp.largest *= scale; 
+
+    if(scale <  0){
+        double t = temp.tinyest;
+        temp.tinyest = temp.largest;
+        temp.largest = t;
+    }
+
     return temp;
 }
 
 statistician operator +(const statistician s1, const statistician s2) {
     statistician temp;
-
     // Students write the code to define temp to be the union
     // of s1 and s2
-
+    if(s1.length() && s2.length()){
+        temp.count  = (s1.length() + s2.length());
+        temp.total  = (s1.sum() + s2.sum());
+        temp.largest = (s1.maximum() >= s2.maximum()) ? s1.maximum() : s2.maximum();
+        temp.tinyest = (s1.minimum() <= s2.minimum()) ? s1.minimum() : s2.minimum();
+    }else{
+        temp  = (s1.length()) ? s1 : s2;
+    }
 
     return temp;
 }
 
 bool operator ==(const statistician& s1, const statistician& s2) {
-    if (s1.length( ) == 0 && s2.length( ) == 0) return true;
 
     // Students must now evaluate whether all attributes of s1
     // are equal, one by one, to the attributes of s2
     // replace the bogus return with your implementation
-    return false;
+    if ( &s1 == &s2 ) return true;
+    return ((s1.length() == s2.length()) && (s1.sum() == s2.sum()) && (s1.minimum() == s2.minimum())
+            && (s1.maximum() == s2.maximum()));
 }
 
 
@@ -121,4 +160,3 @@ std::ostream& operator <<(std::ostream& outs, const statistician& s1) {
     outs << s1.toString();
     return outs;
 }
-
