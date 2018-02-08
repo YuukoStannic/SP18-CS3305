@@ -199,8 +199,7 @@ public class DoubleArrayBag implements Cloneable  {
       else {
          // The target was found at data[index].
          // So reduce used by 1 and copy the last element onto data[index].
-         used--;
-         data[index] = data[used];
+         data[index] = data[--used];
          return true;
       }
    }

@@ -1,0 +1,5 @@
+To create the professional documentation using javadoc,
+enter at the CLI javadoc -d javadocs Statistician.java
+
+Point a browser at the file javadocs/index.html to view
+the documentation

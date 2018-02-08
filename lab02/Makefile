@@ -21,5 +21,5 @@ docs	:  DoubleArrayBag.java
 	firefox javadocs/index.html
 
 clean	:
-	rm -rf javadocs *.class
+	rm -rf javadocs *.class .*.sw.
 
