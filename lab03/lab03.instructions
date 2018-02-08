@@ -1,0 +1,17 @@
+OBJECTIVE:  This lab is designed to afford students an opportunity to complete implementation of a class that models a relatively simple container/collection class called a bag.   In the context of data abstraction, bags are one of the most simple forms of containers/collections in that there are only a few simple operations to be defined and management of the data is relatively simple.  
+
+Typically, we constrain to a single type the kind of data that can be placed in a bag.  Then define operations such as inserting an item, erasing one item of some given value, erasing all items of some given value, reporting how many items are in a bag, adding all the contents of another bag to a given bag, etc.
+
+Specifically, this lab is designed to measure students' ability to implement algorithms for the manipulation of fixed-size array data structures.
+
+RESOURCES:  Text book through chapter 3, class discussion and the compressed archive file attached.
+
+CAUTION:  This lab may take some students 10+ hours to complete correctly.  Start Early.
+
+LOGISTICS: 
+
+    First download the attached zip file into your directory dedicated to work for CS 3305 and then extract the attached archive by the command:  tar zxvf lab02cpp.tgz which will create the directory named lab02cpp.  
+     Make detailed notes regarding class discussion about this assignment.
+    Complete method implementations where required.
+
+SUBMISSION:  Submit just the file bag1.txt into this drop box by the due date/time.  Please note that the requested file name is a symbolic link to the file bag1.cxx and that bag1.cpp is also a symbolic link to the file bag1.cxx.
