@@ -283,6 +283,11 @@ public class DoubleArrayBag implements Cloneable  {
       // number of times target appears.  DO NOT investigate more than used
       // items.
       // STUDENT IMPLEMENTATION OF ABOVE HERE
+      for(int i = 0; i < this.used; i++){
+          if(this.data[i] == target)
+              answer++;
+      }
+          
 
 
       return answer;
