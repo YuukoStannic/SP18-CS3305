@@ -177,7 +177,18 @@ public class DoubleArrayBag implements Cloneable  {
        // searching for a match with target and "erasing" it as is done in erase_one.
        // Of course increment the count each time an item is "erased"
        // STUDENT IMPLEMENTATION OF ABOVE HERE
+       int index = 0;
 
+       while(index < this.used){
+           if(this.data[index] != target){
+               index++;
+               //move on
+           }else{
+               this.data[index] = this.data[used - 1];
+               --used;
+               ++count;
+           }
+       }
        return count;
    }
               
