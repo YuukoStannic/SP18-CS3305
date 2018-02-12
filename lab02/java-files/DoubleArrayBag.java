@@ -268,7 +268,10 @@ public class DoubleArrayBag implements Cloneable  {
       // of the array data.  Investigate use of the highly efficient System.arraycopy
       // method.
       // STUDENT IMPLEMENTATION OF ABOVE HERE
-      //
+                      // source,start,where to, where to start, how many
+      System.arraycopy(addend.data,0,this.data,this.used,addend.used);
+      this.used += addend.used;
+
    }   
 
    /**
@@ -366,7 +369,8 @@ public class DoubleArrayBag implements Cloneable  {
       //into answer's data.  Of course answer's used must be updated.
       //Investigate use of the highly efficient System.arraycopy method
       // STUDENT IMPLEMENTATION OF ABOVE HERE
-
+      answer.plusEquals(b1);
+      answer.plusEquals(b2);
       return answer;
    }
 
