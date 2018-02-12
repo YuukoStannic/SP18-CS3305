@@ -26,6 +26,15 @@ bag::size_type bag::erase(const value_type& target) {
     size_type number_removed = 0;
 
     //STUDENT IMPLEMENTATION HERE
+    while(index < this->used){
+        if(this->data[index] != target){
+            index++;
+        }else{
+           this->data[index] = this->data[this->used -1]; 
+            this->used--;
+            ++number_removed;
+        }
+    }
 
     return number_removed;
 }
@@ -41,6 +50,12 @@ bool bag::erase_one(const value_type& target) {
         ++index;
 
     //STUDENT IMPLEMENTATION HERE
+    if(index == this->used)
+        return false;
+    else{
+        data[index] = data[--used];
+        return true;
+    }
 
     return true;
 }
@@ -74,6 +89,9 @@ void bag::operator +=(const bag& addend) {
     //highly efficient copy function for fast copying array elements to
     //array elements
     //STUDENT IMPLEMENTATION HERE
+    std::copy(addend.data,addend.data + addend.size(),this->data + this->size());
+    this->used += addend.used;
+    
 }
 
 bool bag::operator ==(const bag& comparand) const {
@@ -85,6 +103,12 @@ bool bag::operator ==(const bag& comparand) const {
     int index = 0;
 
     //STUDENT IMPLEMENTATION HERE
+    for(index = 0; this->used; index++){
+        if(this->data[index] != comparand.data[index]){
+            isEqual = false;
+            break;
+        }
+    }
 
     return isEqual;
 }
@@ -101,16 +125,21 @@ bag::size_type bag::occurrences(const value_type& target) const {
     answer = 0;
     //iterate over all used items in data and tally 
     //STUDENT IMPLEMENTATION HERE
-
+    
+    for(i = 0; i < this->used; i++){
+        if(this->data[i] == target)
+            answer++;
+    }
     return answer;
 }
 
 string bag::toString( ) const {
 //Library facilities used:  sstream, string
     std::stringstream outs;
+    size_type i;
     outs << "bag with " << this->size() << " elements: [";
     if ( this->size() > 0 ) {
-        for (int i=0; i < this->size()-1; ++i) {
+        for (i=0; i < this->size()-1; ++i) {
             outs << " " << this->data[i];
             outs << ",";
         }
@@ -130,7 +159,8 @@ bag operator +(const bag& b1, const bag& b2) {
     // answer should be built up using the += operator with b1 and
     // then b2
     //STUDENT IMPLEMENTATION HERE
-    
+    answer += b1;
+    answer += b2;
     return answer;
 }
 
