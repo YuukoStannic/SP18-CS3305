@@ -137,7 +137,7 @@ public class DoubleArrayBag implements Cloneable  {
            // to determine if all are ==.  If a pair are not ==, then
            // set isEqual to false -- which terminates the loop
            // STUDENT IMPLEMENTATION OF ABOVE HERE
-          for(index = 0; index < this.data.length; index++){
+          for(index = 0; index < this.used; index++){
               if(this.data[index] != candidate.data[index]){
                   isEqual  =  false;
                   break;
