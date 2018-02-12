@@ -14,9 +14,10 @@ import java.util.Objects;
 *
 * @author
 *    H. Paul Haiduk with credit given to Michael Main
+*    Completed by: Jecsan Blanco
 *
 * @version
-*    February 3, 2018
+*    February 10, 2018
 *
 ******************************************************************************/
 public class DoubleArrayBag implements Cloneable  {
@@ -287,9 +288,6 @@ public class DoubleArrayBag implements Cloneable  {
           if(this.data[i] == target)
               answer++;
       }
-          
-
-
       return answer;
    }
 

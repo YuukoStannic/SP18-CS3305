@@ -27,9 +27,14 @@ public class MyBagExam
         System.out.printf("Testing equality of non equal bags: \n \t empty myBag is not equal to non-empty myBag2:\t" +
                 "Expected false and got it: %b\n",!myBag.equals(myBag2));
 
+        myBag = new DoubleArrayBag(myBag2);
         System.out.println();
+        System.out.printf("Testing copy constructor: \n \t myBag is equal to non-empty myBag2:\t" +
+                "Expected true  and got it: %b\n",myBag.equals(myBag2));
 
         System.out.println("Bag1:" + ( myBag.toString()));
+        System.out.println();
+
         System.out.println("Bag2:" + ( myBag2.toString()));
 
         myBag = myBag2.clone();
