@@ -1,0 +1,19 @@
+OBJECTIVE:  This lab is designed to afford students an opportunity to complete implementation of a class that models a relatively simple container/collection class called a bag.   In the context of data abstraction, bags are one of the most simple forms of containers/collections in that there are only a few simple operations to be defined and management of the data is relatively simple.
+
+Typically, we constrain to a single type the kind of data that can be placed in a bag.  Then define operations such as inserting an item, erasing one item of some given value, erasing all items of some given value, reporting how many items are in a bag, adding all the contents of another bag to a given bag, etc.
+
+This lab differs from its predecessor in that the bag's capacity will start very small and can then grow (and shrink) as needed.
+
+RESOURCES:  Text book through chapter 3, class discussion and the compressed archive file attached.
+
+CAUTION:  This lab may take some students 5 or more hours to complete correctly.  Start Early.
+
+LOGISTICS: 
+
+    First download the attached zip file into your directory dedicated to work for CS 3305 and then extract the attached archive by the command:  tar zxvf lab03cpp.tgz which will create the directory named lab03cpp. 
+     Make detailed notes regarding class discussion about this assignment.
+    Complete method implementations where required.
+
+SUBMISSION:  Submit just the file bag2.cxx into this drop box by the due date/time.
+
+INTEGRITY REQUIREMENTS:  Work on this lab MUST be the sole work of the individual making a submission herein.  That means only very general discussion regarding issues is permitted among you and your peers in the class.  You may, however,  ask only general questions of one another.  You may ask more detailed questions of Prof. Haiduk and the TA Abbie Fred.  However, always be prepared to state all that you have done before asking for assistance.  Be aware that if you cannot figure out algorithms and their implementation for a lab, you certainly will not be able to do so on an exam.  Understand that elegant implementations on a lab followed by clumsy or non-existent implementations on an exam will raise significant questions about your ethics.   Please note that at some point in the future, you will be required to collaborate on these labs -- if you cannot complete the labs on your own, you have nothing to offer to a group.  
