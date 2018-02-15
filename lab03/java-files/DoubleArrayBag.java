@@ -14,10 +14,9 @@ import java.util.Objects;
 *
 * @author
 *    H. Paul Haiduk with credit given to Michael Main
-*    Compleated by Jecsan Blanco
 *
 * @version
-*    February 13, 2018
+*    February 10, 2018
 *
 ******************************************************************************/
 public class DoubleArrayBag implements Cloneable  {
@@ -202,9 +201,6 @@ public class DoubleArrayBag implements Cloneable  {
 
        if ( this.data.length < newCapacity ) {
            //STUDENT WORK GOES HERE
-           double temp[] = new double[newCapacity];
-           System.arraycopy(this.data,0,temp,0,this.used-1);
-           this.data = temp;
        }
    }
 
@@ -324,10 +320,8 @@ public class DoubleArrayBag implements Cloneable  {
        // Guarantee that we have enough room to hold all the items from
        // addend and then copy them into this bag
        //STUDENT WORK GOES HERE
-      used += addend.used;
-      ensureCapacity(this.used);
-      System.arraycopy(addend,0,this.data,this.used,addend.used);
-       
+
+       used += addend.used;
    }   
 
    /**
@@ -442,7 +436,7 @@ public class DoubleArrayBag implements Cloneable  {
       //DoubleArrayBag newBag = new DoubleArrayBag( ?? );
       //STUDENT WORK HERE
 
-      return new DoubleArrayBag(19);
+      return newBag;
    }
 
 }
