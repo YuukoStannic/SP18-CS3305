@@ -214,7 +214,10 @@ bag operator +(const bag& b1, const bag& b2) {
     // bag
     // STUDENT WORK GOES HERE
     //bag newBag(???));
-
+    
+    bag newBag(b1.size() + b2.size());
+    newBag += b1;
+    newBag += b2;
     return newBag;
 }
 
