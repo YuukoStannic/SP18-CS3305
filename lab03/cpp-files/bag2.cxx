@@ -48,11 +48,6 @@ void bag::ensureCapacity(size_type newCapacity) {
         // into bigger array, deallocate this->data, assign to this->data 
         // the bigger array, etc,
         // STUDENT WORK GOES HERE
-
-    	temp = new value_type(newCapcity);
-    	copy(this->data,temp + other.used, this->data);
-    	swap(this->data,temp);
-    	delete temp;
     }
     //cout << "this bag at exit from ensureCapacity " << *this << endl;
 }
@@ -128,8 +123,7 @@ void bag::operator +=(const bag& addend) {
     // Guarantee that we have enough room to hald all the items
     // from addend and then copy them into this bag
     // STUDENT WORK GOES HERE
-    bag::ensureCapacity(this->used + addend.used);
-
+    //
     used += addend.used;
 }
 
