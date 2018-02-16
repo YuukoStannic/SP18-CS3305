@@ -187,6 +187,7 @@ public class DoubleArrayBag implements Cloneable  {
     *
     * @param
     *   newCapacity an integer greater than 0
+    *   
     *
     * @exception
     *   OutOfMemoryError if not enough dynamic available to allocate
@@ -201,6 +202,10 @@ public class DoubleArrayBag implements Cloneable  {
 
        if ( this.data.length < newCapacity ) {
            //STUDENT WORK GOES HERE
+    	   double temp[] = new double[newCapacity];
+    	   //copy the current data in to the larger array
+    	   System.arraycopy(this.data, 0, temp, 0, this.used);
+    	   data = temp;
        }
    }
 
@@ -320,7 +325,12 @@ public class DoubleArrayBag implements Cloneable  {
        // Guarantee that we have enough room to hold all the items from
        // addend and then copy them into this bag
        //STUDENT WORK GOES HERE
-
+   
+       ensureCapacity(this.used + addend.used);
+       if(this.getCapacity() == this.used + addend.used) {
+    	   System.out.printf("My capcity is: %d\n and I am holding %d", this.getCapacity(),this.used +  addend.used);
+       }
+       System.arraycopy(addend.data, 0, this.data, this.used, addend.used);
        used += addend.used;
    }   
 
@@ -400,6 +410,9 @@ public class DoubleArrayBag implements Cloneable  {
 
             // STUDENT WORK GOES HERE
             // double[] trimmedData = ????
+           double[] trimmedData = new double[newCapacity];
+           System.arraycopy(this.data, 0, trimmedData, 0, this.used);
+           data = trimmedData;
 
         }
     }
@@ -430,12 +443,14 @@ public class DoubleArrayBag implements Cloneable  {
       }
 
       // guarantee that the new bag has exactly the capacity needed to
-      // hold all tiems from both b1 and b2 and then copy the items from
+      // hold all tiems from both b1 and b2 and then c
+      //copy the items from
       // b1 and then b2 into the new bag
 
       //DoubleArrayBag newBag = new DoubleArrayBag( ?? );
       //STUDENT WORK HERE
-
+      DoubleArrayBag newBag = new DoubleArrayBag(b1);
+      newBag.plusEquals(b2);
       return newBag;
    }
 
