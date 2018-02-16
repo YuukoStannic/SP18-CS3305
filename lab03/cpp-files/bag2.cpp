@@ -52,6 +52,7 @@ void bag::ensureCapacity(size_type newCapacity) {
         copy(this->data,this->data + this->used,temp);
 
         swap(*this->data,*temp);
+        this->capacity = newCapacity;
 
         delete [] temp;
     }
@@ -130,7 +131,8 @@ void bag::operator +=(const bag& addend) {
     // from addend and then copy them into this bag
     // STUDENT WORK GOES HERE
     //
-    this->ensureCapacity(this->used + addend.used);
+    this->capacity = this->used + addend.used;
+    this->ensureCapacity(this->capacity);
     copy(addend.data,addend.data + addend.used,this->data + this->used);
     used += addend.used;
 }
@@ -195,6 +197,13 @@ void bag::trimToSize() {
         // from this->data into the smaller array, deallocate this->data,
         // and then assign to this->data the smaller array
         // STUDENT WORK GOES HERE
+        //
+    	value_type * temp = new value_type[this->used];
+        copy(this->data,this->data + this->used,temp);
+        swap(*this->data,*temp);
+        this-> capacity = this->used;
+        delete [] temp;
+
     }
 }
 
