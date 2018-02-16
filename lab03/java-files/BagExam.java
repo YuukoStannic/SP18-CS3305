@@ -1,3 +1,4 @@
+package java;
 // FILE:  BagExam.java
 // Non-interactive test program for the DoubleArrayBag class
 //

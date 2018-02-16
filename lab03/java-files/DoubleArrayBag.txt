@@ -1,3 +1,4 @@
+package java;
 // File: DoubleArrayBag.java 
 
 import java.util.Arrays;
@@ -14,9 +15,10 @@ import java.util.Objects;
 *
 * @author
 *    H. Paul Haiduk with credit given to Michael Main
+*    Compleated by Jecsan Blacno
 *
 * @version
-*    February 10, 2018
+*    February 15, 2018
 *
 ******************************************************************************/
 public class DoubleArrayBag implements Cloneable  {
