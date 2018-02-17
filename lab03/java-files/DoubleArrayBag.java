@@ -1,6 +1,4 @@
-package java;
 // File: DoubleArrayBag.java 
-
 import java.util.Arrays;
 import java.util.Objects;
 
