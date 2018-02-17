@@ -132,6 +132,10 @@ void bag::operator +=(const bag& addend) {
     // from addend and then copy them into this bag
     // STUDENT WORK GOES HERE
     //
+    ensureCapacity(this->used + addend.used);
+
+    copy(addend.data, addend.data + addend.used, this->data + this->used);
+
     used += addend.used;
 }
 
