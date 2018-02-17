@@ -35,6 +35,12 @@ int main(int argc, char* argv[]){
 
    cout << "Bag 1: " << bag1.toString() << endl;
 
+   bag1.erase_one(1);
+   bag1.erase_one(3);
+   bag1.erase_one(5);
+   bag1.trimToSize();
+
+   cout << "Bag 1: " << bag1.toString() << endl;
 
 }
 

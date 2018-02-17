@@ -199,6 +199,15 @@ void bag::trimToSize() {
         // from this->data into the smaller array, deallocate this->data,
         // and then assign to this->data the smaller array
         // STUDENT WORK GOES HERE
+        //
+        value_type * temp = new value_type[this->used];
+        copy(this->data,this->data + this->used,temp); // a snug fit!
+        swap(this->data,temp);
+        this->capacity = this->used;
+
+        delete[] temp;
+        temp = NULL;
+
     }
 }
 
