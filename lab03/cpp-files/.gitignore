@@ -2,3 +2,5 @@ bagexam
 *doxy*
 bag2
 bagtest
+*.o
+

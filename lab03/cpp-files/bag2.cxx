@@ -52,10 +52,10 @@ void bag::ensureCapacity(size_type newCapacity) {
 
         copy(this->data,this->data + this->used,temp);
 
-        delete[] this->data;
-        this->data = temp;
-        temp = NULL;
+        swap(this->data,temp);
         this->capacity = newCapacity;
+        delete[] temp;
+        temp = NULL;
     }
     //cout << "this bag at exit from ensureCapacity " << *this << endl;
 }
