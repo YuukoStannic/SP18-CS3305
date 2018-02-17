@@ -1,35 +1,35 @@
 # Makefile for the first C++ bag
 #
 
-run_exam : test
-	./test
+run_exam : bagexam
+	./bagexam
 
 run_test : bagtest
 	./bagtest
 
-test	: bag2.o test.o
-	g++ -o test -std=c++14 test.o bag2.o
+bagexam	: bag2.o bagexam.o
+	g++ -g -o bagexam -std=c++14 bagexam.o bag2.o
 
-test.o  : test.cxx bag2.h
-	g++ -c -std=c++14 test.cxx
+bagexam.o  : bagexam.cxx bag2.h
+	g++ -g -c -std=c++14 bagexam.cxx
 
 bagtest : bag2.o bagtest.o
-	g++ -o bagtest -std=c++14 bagtest.o bag2.o
+	g++ -g -o bagtest -std=c++14 bagtest.o bag2.o
 
 bagtest.o : bagtest.cxx bag2.h
-	g++ -c -std=c++14 bagtest.cxx
+	g++ -g -c -std=c++14 bagtest.cxx
 
 bag2.o : bag2.cxx bag2.h
-	g++ -c -std=c++14 bag2.cxx
+	g++ -g -c -std=c++14 bag2.cxx
 
-check	: test .valgrindrc
-	valgrind ./test
+check	: bagexam .valgrindrc
+	valgrind ./bagexam
 
 doxydocs	: doxy.config
 	doxygen doxy.config
 	firefox doxyDocs/html/index.html &
 
 clean :
-	rm -rf *.o test bagtest .*sw* doxyDocs
+	rm -rf *.o bagexam bagtest .*sw* doxyDocs
 
 

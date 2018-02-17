@@ -11,7 +11,7 @@
 #include <iostream> // Provides cout
 #include <cstring>  // Provides memcpy
 
-#include "bag1.h"
+#include "bag2.h"
 
 using namespace std;
 
@@ -339,7 +339,6 @@ int test4( ) {
         return 0;
     }
     if (!correct(test, 0)) return 0;
-
     cout << "Testing capacity again...";
     if ( test.getCapacity() != 16 ) {
         cout << "Test failed.\n\n";
@@ -347,10 +346,14 @@ int test4( ) {
     }
 
     cout << "Now trimming to size\n";
+    cout <<" Current capacity is:" << test.getCapacity()<<endl;
+    cout <<" Current used is:" << test.size() << endl;
     test.trimToSize();
     if ( test.getCapacity() != 1 ) {
         cout << "Test failed.\n\n";
         cout << test << endl;
+        cout <<"capacity is now:" << test.getCapacity()<<endl;
+        cout <<"used is now:" << test.size() << endl;
         return 0;
     }
     cout << "Test passed.\n\n";
@@ -444,12 +447,14 @@ int main( ) {
     bool done_union;
     
     cout << "Running " << DESCRIPTION[0] << endl;
-    cout << "Have you implemented erase yet? [Y or N]: ";
-    cin >> reply;
-    done_erase = (reply == 'Y' || reply == 'y');
-    cout << "Have you implemented += and + yet? [Y or N]: ";
-    cin >> reply;
-    done_union = (reply == 'Y' || reply == 'y');
+    /* cout << "Have you implemented erase yet? [Y or N]: "; */
+    /* cin >> reply; */
+    /* done_erase = (reply == 'Y' || reply == 'y'); */
+    /* cout << "Have you implemented += and + yet? [Y or N]: "; */
+    /* cin >> reply; */
+    /* done_union = (reply == 'Y' || reply == 'y'); */
+    done_erase = true;
+    done_union = true;
 
     sum += run_a_test(1, DESCRIPTION[1], test1, POINTS[1]);
     sum += run_a_test(2, DESCRIPTION[2], test2, POINTS[2]);

@@ -1,5 +1,7 @@
 // FILE: bag1.cxx
 // CLASS IMPLEMENTED: bag (see bag1.h for documentation)
+// Implementation compleated by: Jecsan Blanco
+// Version: 2/ 16 /18
 // INVARIANT for the bag class:
 //   1. The number of items in the bag is in the member variable used;
 //   2. The bag's capacity is maintained in the member variable capacity;
@@ -201,10 +203,11 @@ void bag::trimToSize() {
         // and then assign to this->data the smaller array
         // STUDENT WORK GOES HERE
         //
-        value_type * temp = new value_type[this->used];
+        value_type * temp = new value_type[newCapacity];
         copy(this->data,this->data + this->used,temp); // a snug fit!
         swap(this->data,temp);
-        this->capacity = this->used;
+
+        this->capacity = newCapacity;
 
         delete[] temp;
         temp = NULL;
