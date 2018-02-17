@@ -42,6 +42,14 @@ int main(int argc, char* argv[]){
 
    cout << "Bag 1: " << bag1.toString() << endl;
 
+   bag1.ensureCapacity(10);
+   bag bag3 =  bag1 + bag2;
+   cout << "Bag 3: " << bag3.toString() << endl;
+
+
+
+
+
 }
 
 
