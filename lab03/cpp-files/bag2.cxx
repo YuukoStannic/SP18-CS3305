@@ -232,4 +232,27 @@ bag operator +(const bag& b1, const bag& b2) {
 std::ostream& operator <<(std::ostream& outs, const bag& b1) {
     outs << b1.toString();
     return outs;
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//compleated by Jecsan Blanco
+
