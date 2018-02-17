@@ -11,7 +11,7 @@
 #include <iostream> // Provides cout
 #include <cstring>  // Provides memcpy
 
-#include "bag2.h"
+#include "bag1.h"
 
 using namespace std;
 
