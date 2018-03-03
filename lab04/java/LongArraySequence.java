@@ -225,23 +225,49 @@ public class LongArraySequence implements Cloneable, Iterable<Long> {
     }
 
     public void addBefore( long newEntry ) {
-        if ( this.data.length == this.used )
-            this.ensureCapacity( this.used * 2 );
 
-        //
-        // STUDENT WORK HERE
-        //
-        
+
     }
 
     public void addAfter( long newEntry ) {
+        /**
+        Adds newEntry to the LongArraySequence if capacity available;
+        otherwise, capacity is expanded to accommodate addition -- newEntry
+        placed in position immediately after the cursor's position
+        or at end of sequence if there is no valid current position of cursor
+
+        Precondition:
+        newEntry must be an integer or long
+
+        Postcondition:
+        If isCurrent() is True then newEntry is placed
+        in sequence just after the entry at the cursor's
+        position.  If not isCurrent(), then newEntry is
+        placed at the end of the sequence.  The internal
+        cursor "points" to this newEntry.  Otherwise, relative
+        ordering of elements remains unchanged except for the
+        newElement being inserted into the sequence.
+
+        @args newEntry (int)
+
+        @throws OutOfMemoryError
+        if not enough dynamic memory
+        available to accommodate expansion
+         **/
+
         if ( this.data.length == this.used )
             this.ensureCapacity( this.used * 2 );
-
-        //
-        // STUDENT WORK HERE
-        //
-        
+        if(isCurrent() && (this.cursor != this.used -1)){
+            //there is a cursor and it is not at the end
+            //                 from        start           to           from               how many
+            System.arraycopy(this.data,this.cursor +1,this.data,this.cursor+2,this.used -this.cursor);
+            this.advance();
+            this.data[this.cursor] = newEntry;
+        }else{
+            this.data[this.used] = newEntry;
+            this.cursor = this.used;
+        }
+        this.used++;
     }
 
     public void removeCurrent( ) {
@@ -290,8 +316,9 @@ public class LongArraySequence implements Cloneable, Iterable<Long> {
     }//end class SequenceIterator
 
     public static void main( String[] args) {
-        LongArraySequence ages = new LongArraySequence();
-        System.out.printf("%s\n %s %s\n\n" , "After constructor with request for default capacity: ", ages,
+        LongArraySequence ages = new LongArraySequence(20);
+
+        System.out.printf("%s\n %s %s\n\n" , "Afterconstructor with request for default capacity: ", ages,
                                            "and capacity should be 10" );
         LongArraySequence stuff = new LongArraySequence(1);
         System.out.printf("%s\n %s %s\n\n" , "After constructor with request for capacity of 1: ", stuff,
