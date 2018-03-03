@@ -1,0 +1,41 @@
+
+LAB 04-java
+Attached Files:
+
+    File lab04java.tgz (4.18 KB)
+    File lab04py.tgz (6.149 KB) 
+
+OBJECTIVE:  This lab is designed to afford students an opportunity to complete implementation of a class that models a moderately complex container/collection class called a sequence.   In the context of data abstraction, sequences require that relative ordering of its elements be maintained at all times.  Sequences also maintain a cursor to indicate which item in the sequence is the current item.  Placing new items into the sequence is always relative to the cursor if it is defined.
+
+Typically, we constrain to a single type the kind of data that can be placed in a sequence.  This lab is similar to the previous lab in that the sequence's capacity will start very small and can then grow (and shrink) as needed.
+
+RESOURCES:  Text book through chapter 3, class discussion and the compressed archive file attached.
+
+CAUTION:  To avoid the possibility of being at the deadline with some relatively simple problem that would result in receiving the grade of zero for the lab, it is critical that you begin work on this project immediately.  Your team grade will be much better, and the stress level will be much lower.
+
+LOGISTICS: 
+
+    First, follow the steps in the git workflow document.  This requires that each team create the team repository named lab04java (a small modification to the document) and then follow the procedures to set up the working directory (local repository) for each team member.  If the "remote" repository is named lab04java and you git clone it, your local working directory will be named the same.
+
+    Be sure that you are in your current working directory.  Using vim/gvim, create the file named .gitignore (yes dot gitignore).  Enter the following lines in that file:
+
+                javadocs
+                __pycache__
+                *.class
+                .*sw*
+
+    Ensure that each team member creates the git branch named with your name.  if you use "checkout -B YourName", you will have created the branch and checked it out -- meaning that your current context will be your branch.  
+
+    Next download the attached zip file into your working directory and then extract the attached archive by the command:  tar zxvf lab04java.tgz.
+     
+     Make detailed notes regarding class discussion about this assignment.
+
+    Using the pre-conditions and post-conditions documented in the Python version of this lab, complete method implementations where required.  As a team, decide which team member will work on which methods.  This should be a balanced effort not only of the number of methods but also the relative difficulty.  Methods to be implemented are:  equals, addBefore, addAfter, removeCurrent.  Work division should be equals and addBefore vs addAfter and removeCurrent.
+
+    NOTE the file correct_output.txt.  Use it for comparison with output produced when testing your implementations.  Class discussion will show how to do that with great efficiency.
+
+    Also note that you are required to document LongArraySequence.java similarly to the way the Python version is documented.  You have significant examples from previous shared Java class files to use as a model for this effort.  Ultimately, your LongArraySequence.java file should contain the appropriate type of comments such that a "make docs" will give you professional documentation for your work. 
+
+SUBMISSION:  Given that this is a team project to be completed under version control, the primary submission will be in your team repository on thor.  However, as a backup, one team member MUST ensure that the final combined implementations be submitted in this dropbox as file named LongArraySequence.java.
+
+INTEGRITY REQUIREMENTS:  Work on this lab MUST be the sole work of the team making a submission herein.  That means only very general discussion regarding issues is permitted among you and your peers in the class.  You may, however,  ask only general questions of one another.  You may ask more detailed questions of Prof. Haiduk.  However, always be prepared to state all that you have done before asking for assistance.  Be aware that if you cannot figure out algorithms and their implementation for a lab, you certainly will not be able to do so on an exam.  Understand that elegant implementations on a lab followed by clumsy or non-existent implementations on an exam will raise significant questions about your ethics.
